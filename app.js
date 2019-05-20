@@ -17,6 +17,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// 第一级路由分发
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 

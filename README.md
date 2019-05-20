@@ -1,29 +1,27 @@
-# myresumevue
+<!-- TOC -->
 
-## Project setup
+- [项目介绍](#项目介绍)
+- [项目配置](#项目配置)
+    - [项目编译运行](#项目编译运行)
+    - [打包项目](#打包项目)
+
+<!-- /TOC -->
+## 项目介绍
+
+
+## 项目配置
+
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### 项目编译运行
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### 打包项目
 ```
 npm run build
 ```
 
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

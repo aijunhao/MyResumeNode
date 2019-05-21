@@ -26,7 +26,11 @@ exports.register = (params, callback) => {
 // 用户登录
 exports.login = (params, callback) => {
   db.query({
-    sql: '',
-    values: []
+    sql: 'SELECT User_Id, User_Name FROM Users WHERE Email = ?',
+    values: [params.email]
+  }).then(results => {
+    return callback(null, results)
+  }).catch(err => {
+    return callback(err)
   })
 }

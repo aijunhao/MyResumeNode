@@ -36,7 +36,21 @@ router.post('/register', (req, res) => {
  */
 router.post('/login', (req, res) => {
   console.log(req.body.email, req.body.pass)
-  console.log('登录成功')
+  DB.login(
+    {
+      email: req.body.email,
+      pass: req.body.pass
+    },
+    (err, results) => {
+      if (err) {
+        console.log('登录错误', err)
+        res.status(500).send('登录失败失败')
+      } else if (results) {
+        console.log('登录成功', results)
+        res.status(200).send(results[0])
+      }
+    }
+  )
 })
 
 module.exports = router

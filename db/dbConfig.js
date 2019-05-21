@@ -9,4 +9,24 @@ const pool = mysql.createPool({
   database: 'MyResume'
 })
 
-module.exports = pool
+// 进行 promise 封装
+exports.query = ({ sql, values }) => {
+  return new Promise((resolve, reject) => {
+    pool.getConnection((err, connection) => {
+      if (err) {
+        reject(err)
+        return
+      }
+      connection.query(sql, values, (err, result) => {
+        if (err) {
+          reject(err)
+        } else {
+          resolve(result)
+        }
+        connection.release()
+      })
+    })
+  })
+}
+
+// module.exports = query

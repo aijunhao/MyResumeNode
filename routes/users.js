@@ -22,7 +22,8 @@ router.post('/register', (req, res) => {
         res.status(500).send('失败')
       } else if (results) {
         console.log('注册成功')
-        res.status(200).send('注册成功')
+        // 已登录，直接返回结果
+        res.status(200).send(results[0])
       } else {
         console.log('注册失败，邮箱已存在')
         res.status(201).send('注册失败，邮箱已存在')
@@ -53,4 +54,11 @@ router.post('/login', (req, res) => {
   )
 })
 
+/**
+ * 头像上传
+ */
+router.post('/head', (req, res) => {
+  console.log(req.body)
+  res.send('ok')
+})
 module.exports = router
